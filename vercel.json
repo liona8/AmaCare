@@ -1,26 +1,12 @@
 {
-  "builds": [
-    {
-      "src": "amacare/manage.py",
-      "use": "@vercel/python",
-      "config": {
-        "maxLambdaSize": "15mb",
-        "runtime": "python3.12"
-      }
-    },
-    {
-      "src": "api/index.py",
-      "use": "@vercel/python"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "api/index.py"
-    }
-  ],
+  "buildCommand": "pip install -r requirements.txt && python amacare/manage.py migrate --noinput",
+  "outputDirectory": "amacare",
   "env": {
-    "PYTHONUNBUFFERED": "1",
-    "DJANGO_SETTINGS_MODULE": "amacare.settings"
+    "PYTHONUNBUFFERED": "1"
+  },
+  "functions": {
+    "api/*.py": {
+      "runtime": "python3.12"
+    }
   }
 }
