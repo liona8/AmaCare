@@ -2,3 +2,6 @@ django
 Pillow
 google-genai
 dotenv
+vercel
+whitenoise
+gunicorn
