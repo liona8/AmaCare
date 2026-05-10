@@ -1,0 +1,22 @@
+{
+  "builds": [
+    {
+      "src": "amacare/amacare/wsgi.py",
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "15mb",
+        "runtime": "python3.11"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "amacare/amacare/wsgi.py"
+    }
+  ],
+  "env": {
+    "PYTHONUNBUFFERED": "1",
+    "DJANGO_SETTINGS_MODULE": "amacare.settings"
+  }
+}
