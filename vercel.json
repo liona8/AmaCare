@@ -2,17 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "amacare/wsgi.py",
+      "src": "api/index.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "amacare/wsgi.py"
+      "dest": "api/index.py"
     }
-  ],
-  "env": {
-    "PYTHONUNBUFFERED": "1"
-  }
+  ]
 }
